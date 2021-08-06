@@ -1,0 +1,12 @@
+.search-container {
+  height: 50px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.search-container .search-input {
+  width: 100%;
+  height: 100%;
+  background: var(--layer-color);
+  border-radius: 50px;
+  padding: 0 1rem;
+}

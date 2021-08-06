@@ -1,0 +1,18 @@
+:root {
+  --ifrepis-color: rgba(30, 51, 127);
+  --bg-color: #1a1a1a;
+  --layer-color: #333333;
+  --step-color-zero: #b1b1b1;
+  --step-color-one: #999999;
+  --step-color-two: #717171;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #fff;
+    --layer-color: #fff;
+    --step-color-zero: #2f2f2f;
+    --step-color-one: #555555;
+    --step-color-two: #999999;
+  }
+}

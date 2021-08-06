@@ -1,0 +1,55 @@
+.actions-bar-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 300ms;
+  border-radius: 10px;
+}
+@media (any-hover: hover) {
+  .actions-bar-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+.actions-bar-button::before {
+  font-size: 2rem;
+}
+.actions-bar-container {
+  background: var(--layer-color);
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0 5px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transform: scale(0);
+  transform-origin: right top;
+  opacity: 0;
+  transition: transform 300ms, top 300ms, opacity 300ms;
+  text-align: center;
+  width: 150px;
+}
+@media (max-width: 900px) {
+  .actions-bar-container {
+    width: calc(50% - 2rem);
+    right: 2rem;
+  }
+}
+.actions-bar-container .actions-bar-container-item {
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: auto;
+  white-space: nowrap;
+  transition: background-color 150ms;
+}
+.actions-bar-container .actions-bar-container-item:hover {
+  background: var(--step-color-two);
+}
+.actions-bar-show {
+  transform: scale(1);
+  opacity: 1;
+  top: 3rem;
+}

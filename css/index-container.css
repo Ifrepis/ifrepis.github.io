@@ -1,0 +1,53 @@
+.index-container .index-container-item {
+  box-shadow: var(--box-shadow);
+  background: var(--layer-color);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: transform 300ms;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.index-container .index-container-item:hover {
+  transform: scale(1.01);
+}
+.index-container .index-container-item .index-container-item-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.index-container .index-container-item .index-container-item-content {
+  font-size: 1rem;
+  color: var(--step-color-one);
+  margin-bottom: 1rem;
+}
+.index-container .index-container-item .index-container-item-time {
+  font-size: 0.9rem;
+  color: var(--step-color-two);
+}
+.index-container .index-container-item .index-container-item-categories,
+.index-container .index-container-item .index-container-item-tags {
+  margin-top: 0.5rem;
+}
+.index-container .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background-color: var(--layer-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.index-container .pagination .paging {
+  box-shadow: var(--box-shadow);
+  border-radius: 4px;
+  transition: background-color 150ms;
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+}
+.index-container .pagination .paging:hover {
+  background-color: var(--step-color-two);
+}
+.index-container .pagination .page-number {
+  flex: 1;
+}

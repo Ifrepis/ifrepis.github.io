@@ -1,0 +1,63 @@
+.post-container .post-container-body {
+  color: var(--step-color-one);
+}
+.post-container .post-container-change {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.post-container .post-container-change .prev,
+.post-container .post-container-change .next {
+  flex: 1;
+  height: 100px;
+  margin: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  background-color: var(--layer-color);
+  box-shadow: var(--box-shadow);
+  transition: background-color 150ms;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: overlay;
+  cursor: pointer;
+}
+.post-container .post-container-change .prev .title,
+.post-container .post-container-change .next .title {
+  word-wrap: break-word;
+  font-size: 1.5rem;
+}
+.post-container .post-container-change .prev .excerpt,
+.post-container .post-container-change .next .excerpt {
+  word-wrap: break-word;
+  flex: 1;
+  padding: 10px;
+}
+@media (any-hover: hover) {
+  .post-container .post-container-change .prev:hover,
+  .post-container .post-container-change .next:hover {
+    background-color: var(--step-color-two);
+  }
+}
+.post-container .comments {
+  text-align: center;
+}
+.post-container .comments .view {
+  cursor: pointer;
+}
+.post-container .comments .gt-container .gt-no-init,
+.post-container .comments .gt-container .gt-initing {
+  padding: 0;
+}
+.post-container .comments .gt-container .gt-initing-text {
+  margin: 0;
+}
+.post-container .comments .gt-container .gt-no-init .gt-btn {
+  margin-top: 10px;
+}
+@media (any-hover: none) and (orientation: portrait) {
+  .post-container .comments {
+    width: 90%;
+  }
+}
