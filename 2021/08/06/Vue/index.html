@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-       Vue - Ifrepis 
-    </title>
-    <link rel="apple-touch-icon" href="favicon.svg" />
-    <link rel="icon" href="favicon.svg" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
     
+          Vue - Ifrepis
+              
+  </title>
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <link rel="icon" href="favicon.svg" />
+  
 <link rel="stylesheet" href="/css/index.css">
- 
+
+    
 <link rel="stylesheet" href="/iconfont/iconfont.css">
 
-    <script type="module" src="/js/index.js"></script>
-  <meta name="generator" content="Hexo 5.4.0"></head>
-  <body>
-    <div class="floating-layer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script type="module" src="/js/index.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="floating-layer"></div>
 
     <div class="body-container">
       <div class="body-container-header">
         <div class="sidebar-button iconfont icon-row-full"></div>
 <div class="sidebar-container"></div>
 
-        <div class="page-title">Vue</div>
-        <div class="actions-bar-button iconfont icon-option-vertical"></div>
+          <div class="page-title">
+            Vue
+          </div>
+          <div class="actions-bar-button iconfont icon-option-vertical"></div>
 <div class="actions-bar-container">
   
   <div class="actions-bar-container-item" onclick="window.location.href = '/' ">
@@ -43,26 +51,14 @@
 </div>
 
       </div>
-      <div class="body-container-content"><div class="post-container">
+      <div class="body-container-content">
+        <div class="post-container">
   
 <link rel="stylesheet" href="/css/post-container.css">
  
 <link rel="stylesheet" href="/css/github-markdown.css">
 
 
-  <!-- <div class="post-container-categories">
-    categories:
-    <a class="category-link" href="/categories/Front-end/">
-      Front end
-    </a>
-    
-  </div>
-  <div class="post-container-tags">
-    tags:
-  </div>
-  <div class="post-container-time">
-    2021-08-06
-  </div> -->
   <div class="post-container-body"><h3 id="Vue-单页面应用模块化项目"><a href="#Vue-单页面应用模块化项目" class="headerlink" title="Vue 单页面应用模块化项目"></a>Vue 单页面应用模块化项目</h3><ul>
 <li><h4 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h4><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">├── public                     <span class="comment"># 直接复制静态资源</span></span><br><span class="line">│   │── favicon.ico            <span class="comment"># favicon 图标</span></span><br><span class="line">│   └── index.html             <span class="comment"># html 模板</span></span><br><span class="line">├── src                        <span class="comment"># 源代码</span></span><br><span class="line">│   │── api                      <span class="comment"># 全局公共请求</span></span><br><span class="line">│   │── assets                   <span class="comment"># 全局公共静态资源</span></span><br><span class="line">│   │── components               <span class="comment"># 全局公共组件</span></span><br><span class="line">│   │── <span class="keyword">directive </span>               <span class="comment"># 全局公共指令</span></span><br><span class="line">│   │── filters                  <span class="comment"># 全局公共过滤器</span></span><br><span class="line">│   │── icons                    <span class="comment"># 全局公共图标</span></span><br><span class="line">│   │── layout                   <span class="comment"># 项目布局</span></span><br><span class="line">│   │── mixins                   <span class="comment"># 全局公共混入</span></span><br><span class="line">│   │── modules                  <span class="comment"># 模块</span></span><br><span class="line">│       └── modules name</span><br><span class="line">│           │── 与 src 下文件名相同,部分配置不相同</span><br><span class="line">│           └── ...</span><br><span class="line">│   │── router                   <span class="comment"># 路由</span></span><br><span class="line">│   │── store                    <span class="comment"># 全局公共状态</span></span><br><span class="line">│   │── styles                   <span class="comment"># 样式</span></span><br><span class="line">│   │── utils                    <span class="comment"># 全局公共工具类</span></span><br><span class="line">│   │── vendor                   <span class="comment"># 公共代码块</span></span><br><span class="line">│   │── views                    <span class="comment"># 全局公共页面</span></span><br><span class="line">│   │── App.vue                  <span class="comment"># 项目入口页面</span></span><br><span class="line">│   │── main.<span class="keyword">js </span>                 <span class="comment"># 项目入口 js</span></span><br><span class="line">│   │── permission.<span class="keyword">js </span>           <span class="comment"># 权限控制</span></span><br><span class="line">│   └── settings.<span class="keyword">js </span>             <span class="comment"># 项目基础设置</span></span><br><span class="line">├── .<span class="keyword">browserslistrc </span>           <span class="comment"># 兼容浏览器配置</span></span><br><span class="line">├── .editorconfig              <span class="comment"># 跨编辑器代码风格</span></span><br><span class="line">├── .env.x                     <span class="comment"># 项目环境配置</span></span><br><span class="line">├── .eslintignore              <span class="comment"># eslint 忽略项</span></span><br><span class="line">├── .eslintrc.<span class="keyword">js </span>              <span class="comment"># eslint 配置</span></span><br><span class="line">├── .gitignore                 <span class="comment"># git 忽略项</span></span><br><span class="line">├── .prettierrc                <span class="comment"># 代码风格配置</span></span><br><span class="line">├── <span class="keyword">babel.config.js </span>           <span class="comment"># babel-loader 配置</span></span><br><span class="line">├── <span class="keyword">jsconfig.json </span>             <span class="comment"># vuter 配置</span></span><br><span class="line">├── package-lock.<span class="keyword">json </span>         <span class="comment"># 软件包版本</span></span><br><span class="line">├── package.<span class="keyword">json </span>              <span class="comment"># 项目配置清单</span></span><br><span class="line">├── postcss.config.<span class="keyword">js </span>         <span class="comment"># postcss 配置</span></span><br><span class="line">└── vue.config.<span class="keyword">js </span>             <span class="comment"># vue-cli 配置</span></span><br></pre></td></tr></table></figure></li>
 <li><h4 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h4><blockquote>
@@ -154,7 +150,9 @@
       </div>
   
 </div>
-</div>
+
+      </div>
     </div>
-  </body>
+</body>
+
 </html>
