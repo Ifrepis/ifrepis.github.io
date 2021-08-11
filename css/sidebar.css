@@ -12,6 +12,33 @@
   transition: transform 300ms;
   box-shadow: var(--box-shadow);
 }
+.sidebar-container > .toc .toc-level-1 {
+  font-size: 1.3rem;
+}
+.sidebar-container > .toc .toc-level-2 {
+  font-size: 1.2rem;
+}
+.sidebar-container > .toc .toc-level-3 {
+  font-size: 1.1rem;
+}
+.sidebar-container > .toc .toc-level-4 {
+  font-size: 1rem;
+}
+.sidebar-container > .toc .toc-level-5 {
+  font-size: 0.875rem;
+}
+.sidebar-container > .toc .toc-level-6 {
+  font-size: 0.85rem;
+}
+.sidebar-container > .toc .toc-item {
+  margin: 1rem;
+  list-style-type: none;
+  font-weight: 600;
+}
+.sidebar-container > .toc .toc-item > a:hover {
+  text-decoration: underline;
+  color: #738fcd;
+}
 .sidebar-button {
   width: 2.5rem;
   height: 2.5rem;

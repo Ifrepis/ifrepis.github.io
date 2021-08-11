@@ -30,6 +30,33 @@
   transition: transform 300ms;
   box-shadow: var(--box-shadow);
 }
+.sidebar-container > .toc .toc-level-1 {
+  font-size: 1.3rem;
+}
+.sidebar-container > .toc .toc-level-2 {
+  font-size: 1.2rem;
+}
+.sidebar-container > .toc .toc-level-3 {
+  font-size: 1.1rem;
+}
+.sidebar-container > .toc .toc-level-4 {
+  font-size: 1rem;
+}
+.sidebar-container > .toc .toc-level-5 {
+  font-size: 0.875rem;
+}
+.sidebar-container > .toc .toc-level-6 {
+  font-size: 0.85rem;
+}
+.sidebar-container > .toc .toc-item {
+  margin: 1rem;
+  list-style-type: none;
+  font-weight: 600;
+}
+.sidebar-container > .toc .toc-item > a:hover {
+  text-decoration: underline;
+  color: #738fcd;
+}
 .sidebar-button {
   width: 2.5rem;
   height: 2.5rem;
@@ -113,64 +140,6 @@
   transform: scale(1);
   opacity: 1;
   top: 3rem;
-}
-.search-container {
-  position: relative;
-  margin-bottom: 1rem;
-  z-index: 1;
-}
-.search-container .search-operate-container {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 1rem;
-}
-.search-container .search-operate-container .iconfont {
-  display: inline-block;
-  font-size: 1.1rem;
-  margin: 0 5px;
-  cursor: pointer;
-}
-.search-container .search-operate-container .icon-close {
-  display: none;
-}
-.search-container .search-operate-container .close-show {
-  display: inline-block;
-}
-.search-container .search-input {
-  height: 50px;
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 6rem;
-  background: var(--layer-color);
-  border-radius: 50px;
-}
-.search-container .search-content {
-  display: none;
-}
-.search-show-content .search-input {
-  border-radius: 25px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.search-show-content .search-content {
-  width: 100%;
-  color: var(--step-color-one);
-  position: absolute;
-  overflow: hidden;
-  background: var(--layer-color);
-  border-top: 1px solid var(--bg-color);
-  border-radius: 25px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  display: block;
-}
-.search-show-content .search-content .search-content-item {
-  padding: 11px 1rem;
-  cursor: pointer;
-}
-.search-show-content .search-content .search-content-item:hover {
-  background: var(--bg-color);
 }
 @media (any-hover: hover) {
   ::-webkit-scrollbar {
@@ -277,6 +246,7 @@ body .body-container .body-container-content .tag--link:hover {
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
+  z-index: 3;
 }
 .floating-layer-show {
   opacity: 1;

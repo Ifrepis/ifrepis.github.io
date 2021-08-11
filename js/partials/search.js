@@ -69,5 +69,5 @@ export const searchInit = function () {
   searchInput.addEventListener("input", valueChanges);
   searchIcon.addEventListener("click", search);
   searchCloseIcon.addEventListener("click", close);
-  return searchInit;
 };
+searchInit();

@@ -1,7 +1,7 @@
 .search-container {
   position: relative;
   margin-bottom: 1rem;
-  z-index: 1;
+  z-index: 4;
 }
 .search-container .search-operate-container {
   position: absolute;
@@ -43,7 +43,6 @@
   position: absolute;
   overflow: hidden;
   background: var(--layer-color);
-  border-top: 1px solid var(--bg-color);
   border-radius: 25px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -52,6 +51,9 @@
 .search-show-content .search-content .search-content-item {
   padding: 11px 1rem;
   cursor: pointer;
+}
+.search-show-content .search-content .search-content-item:first-child {
+  border-top: 1px solid var(--bg-color);
 }
 .search-show-content .search-content .search-content-item:hover {
   background: var(--bg-color);
