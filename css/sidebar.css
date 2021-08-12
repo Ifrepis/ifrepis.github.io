@@ -1,3 +1,20 @@
+.sidebar-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 300ms;
+  border-radius: 10px;
+}
+@media (any-hover: hover) {
+  .sidebar-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+.sidebar-button::before {
+  font-size: 1.5rem;
+}
 .sidebar-container {
   z-index: 10;
   width: 300px;
@@ -11,6 +28,13 @@
   transform: translateX(-100%);
   transition: transform 300ms;
   box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-container > .sidebar-content,
+.sidebar-container .toc {
+  flex: 1;
+  overflow-y: overlay;
 }
 .sidebar-container > .toc .toc-level-1 {
   font-size: 1.3rem;
@@ -35,26 +59,20 @@
   list-style-type: none;
   font-weight: 600;
 }
-.sidebar-container > .toc .toc-item > a:hover {
-  text-decoration: underline;
-  color: #738fcd;
+.sidebar-container > .sidebar-footer {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.sidebar-button {
-  width: 2.5rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 300ms;
-  border-radius: 10px;
+.sidebar-container > .sidebar-footer .sidebar-footer-social .sidebar-footer-social-item {
+  margin: 0 10px;
 }
-@media (any-hover: hover) {
-  .sidebar-button:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-.sidebar-button::before {
-  font-size: 1.5rem;
+.sidebar-container > .sidebar-footer .sidebar-footer-social .sidebar-footer-social-item:hover {
+  text-decoration: none;
 }
 @media (any-hover: none) and (orientation: portrait) {
   .sidebar-button {

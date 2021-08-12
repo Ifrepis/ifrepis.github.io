@@ -1,0 +1,42 @@
+.tags-container .tag--link {
+  position: relative;
+}
+.tags-container .tag--link .tag--count {
+  display: block;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 150ms, opacity 150ms;
+  width: 100px;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--layer-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+.tags-container .tag--link .tag--count::before {
+  content: "文章数：";
+}
+.tags-container .tag--link .tag--count::after {
+  content: "";
+  width: 0px;
+  /*  宽高设置为0，很重要，否则达不到效果 */
+  height: 0px;
+  border: 7px solid var(--layer-color);
+  border-radius: 4px;
+  border-top-color: transparent;
+  /* 设置透明背景色 */
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tags-container .tag--link:hover .tag--count {
+  visibility: visible;
+  opacity: 1;
+}

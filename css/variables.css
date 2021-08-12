@@ -5,14 +5,15 @@
   --step-color-zero: #b1b1b1;
   --step-color-one: #999999;
   --step-color-two: #717171;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22), 0 0 6px rgba(0, 0, 0, 0.14);
 }
 @media (prefers-color-scheme: light) {
   :root {
     --bg-color: #fff;
-    --layer-color: #fff;
+    --layer-color: #f7f7f7;
     --step-color-zero: #2f2f2f;
     --step-color-one: #555555;
     --step-color-two: #999999;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   }
 }
