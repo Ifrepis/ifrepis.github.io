@@ -1,5 +1,6 @@
 .post-container .post-container-body {
   color: var(--step-color-one);
+  margin-bottom: 1rem;
 }
 .post-container .post-container-change {
   width: 100%;
@@ -12,6 +13,7 @@
   flex: 1;
   height: 100px;
   margin: 1rem;
+  margin-top: 0;
   text-align: center;
   border-radius: 10px;
   background-color: var(--layer-color);
