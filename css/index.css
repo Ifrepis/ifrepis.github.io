@@ -164,12 +164,16 @@
   box-sizing: border-box;
   font-family: Consolas, "Liberation Mono", Menlo, Monaco;
 }
+html {
+  overflow: hidden;
+}
 body {
   background-color: var(--bg-color);
   color: var(--step-color-zero);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow: hidden;
 }
 body a {
   text-decoration: none;
