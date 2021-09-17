@@ -51,19 +51,17 @@ export const searchInit = function () {
   let close = () => {
     if (searchInput.value) {
       searchInput.value = "";
-      searchContainer.classList.remove(className);
       searchCloseIcon.classList.remove("close-show");
-      searchContent.innerHTML = "";
-      floatingLayer.classList.remove("floating-layer-show");
+      floatingLayer.click();
       searchInput.focus();
     }
   };
 
   floatingLayer.addEventListener("click", () => {
+    searchContent.innerHTML = "";
+    searchContainer.classList.remove(className);
     if (searchInput.value) {
-      searchContainer.classList.remove(className);
       floatingLayer.classList.remove("floating-layer-show");
-      searchContent.innerHTML = "";
     }
   });
   searchInput.addEventListener("input", valueChanges);
