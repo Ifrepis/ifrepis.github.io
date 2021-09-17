@@ -640,7 +640,7 @@
 .post-container-body img[align="left"] {
   padding-right: 20px;
 }
-.post-container-body .highlight code {
+.post-container-body code {
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: inherit;
@@ -659,37 +659,39 @@
   word-break: normal;
   white-space: pre;
   background: transparent;
+  box-shadow: none;
   border: 0;
 }
-.post-container-body .highlight {
+.post-container-body .hljs {
   margin-bottom: 16px;
   border-radius: 4px;
   overflow: overlay;
 }
-.post-container-body .highlight table {
+.post-container-body .hljs table {
   display: table;
   margin: 0;
   width: initial;
 }
-.post-container-body .highlight table tr {
+.post-container-body .hljs table tr {
   background-color: inherit;
   border: none;
 }
-.post-container-body .highlight table tr .code {
+.post-container-body .hljs table tr .code {
   padding: 0;
   border: none;
 }
-.post-container-body .highlight pre {
+.post-container-body .hljs pre {
   margin-bottom: 0;
   word-break: normal;
 }
-.post-container-body .highlight pre,
+.post-container-body .hljs pre,
 .post-container-body pre {
   padding: 10px;
   overflow: auto;
   font-size: 0.85rem;
   background-color: var(--layer-color);
   border-radius: 4px;
+  box-shadow: var(--box-shadow);
 }
 .post-container-body pre code {
   display: inline;

@@ -319,6 +319,10 @@ body a:hover {
   color: #738fcd;
   text-decoration: underline;
 }
+body img {
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
 body input {
   font-size: inherit;
   color: inherit;

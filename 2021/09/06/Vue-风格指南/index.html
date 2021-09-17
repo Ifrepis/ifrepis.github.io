@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+       Vue 风格指南
+      - Ifrepis 
+    </title>
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    
+<link rel="stylesheet" href="/css/index.css">
+ 
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="/js/index.js"></script>
+  <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Ifrepis" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="floating-layer"></div>
+
+    <div class="body-container">
+      <div class="body-container-header">
+        <div class="sidebar-button iconfont icon-row-full"></div>
+<div class="sidebar-container">
+  <div class="sidebar-content">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97"><span class="toc-text">风格指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%88%86%E7%B1%BB"><span class="toc-text">规则分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%85%E8%A6%81%E7%9A%84%EF%BC%9A"><span class="toc-text">必要的：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%9A"><span class="toc-text">强烈推荐：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%EF%BC%9A"><span class="toc-text">推荐：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%A8%E6%85%8E%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-text">谨慎使用：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%85%E8%A6%81%E7%9A%84%EF%BC%9A-1"><span class="toc-text">必要的：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%90%8D%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%8D%95%E8%AF%8D"><span class="toc-text">组件名为多个单词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%95%B0%E6%8D%AE"><span class="toc-text">组件数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prop-%E5%AE%9A%E4%B9%89"><span class="toc-text">Prop 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA-v-for-%E8%AE%BE%E7%BD%AE%E9%94%AE%E5%80%BC"><span class="toc-text">为 v-for 设置键值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%BF%E5%85%8D-v-if-%E5%92%8C-v-for-%E7%94%A8%E5%9C%A8%E4%B8%80%E8%B5%B7"><span class="toc-text">避免 v-if 和 v-for 用在一起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">为组件样式设置作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%81%E6%9C%89-property-%E5%90%8D"><span class="toc-text">私有 property 名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%9A-1"><span class="toc-text">强烈推荐：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%96%87%E4%BB%B6"><span class="toc-text">组件文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6%E6%96%87%E4%BB%B6%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-text">单文件组件文件的大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E5%90%8D"><span class="toc-text">基础组件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BE%8B%E7%BB%84%E4%BB%B6%E5%90%8D"><span class="toc-text">单例组件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A7%E5%AF%86%E8%80%A6%E5%90%88%E7%9A%84%E7%BB%84%E4%BB%B6%E5%90%8D"><span class="toc-text">紧密耦合的组件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F"><span class="toc-text">组件名中的单词顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E9%97%AD%E5%90%88%E7%BB%84%E4%BB%B6"><span class="toc-text">自闭合组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84%E7%BB%84%E4%BB%B6%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-text">模板中的组件名大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-JSX-%E4%B8%AD%E7%9A%84%E7%BB%84%E4%BB%B6%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-text">JS&#x2F;JSX 中的组件名大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%8D%95%E8%AF%8D%E7%9A%84%E7%BB%84%E4%BB%B6%E5%90%8D"><span class="toc-text">完整单词的组件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prop-%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-text">Prop 名大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA-attribute-%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-text">多个 attribute 的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%AE%80%E5%8D%95%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">模板中简单的表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="toc-text">简单的计算属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%BC%95%E5%8F%B7%E7%9A%84-attribute-%E5%80%BC"><span class="toc-text">带引号的 attribute 值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%BC%A9%E5%86%99"><span class="toc-text">指令缩写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%EF%BC%9A-1"><span class="toc-text">推荐：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6-%E5%AE%9E%E4%BE%8B%E7%9A%84%E9%80%89%E9%A1%B9%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-text">组件&#x2F;实例的选项的顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0-attribute-%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-text">元素 attribute 的顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6-%E5%AE%9E%E4%BE%8B%E9%80%89%E9%A1%B9%E4%B8%AD%E7%9A%84%E7%A9%BA%E8%A1%8C"><span class="toc-text">组件&#x2F;实例选项中的空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6%E7%9A%84%E9%A1%B6%E7%BA%A7%E5%85%83%E7%B4%A0%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-text">单文件组件的顶级元素的顺序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%A8%E6%85%8E%E4%BD%BF%E7%94%A8%EF%BC%9A-1"><span class="toc-text">谨慎使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E5%9C%A8-v-if-v-else-if-v-else-%E4%B8%AD%E4%BD%BF%E7%94%A8-key"><span class="toc-text">没有在 v-if&#x2F;v-else-if&#x2F;v-else 中使用 key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scoped-%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">scoped 中的元素选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E6%80%A7%E7%9A%84%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1"><span class="toc-text">隐性的父子组件通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E-Flux-%E7%9A%84%E5%85%A8%E5%B1%80%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-text">非 Flux 的全局状态管理</span></a></li></ol></li></ol></li></ol>
+        
+  </div>
+  <div class="sidebar-footer">
+    <div class="sidebar-footer-social">
+      
+        <a class="sidebar-footer-social-item iconfont icon-github" target="_blank" rel="noopener" href="https://github.com/Ifrepis">
+        </a>
+        
+        <a class="sidebar-footer-social-item iconfont icon-rss" href="/atom.xml">
+        </a>
+        
+        <a class="sidebar-footer-social-item iconfont icon-envelope" href="mailto:ifrepis@outlook.com">
+        </a>
+        
+    </div>
+  </div>
+</div>
+
+        <div class="page-title">Vue 风格指南</div>
+        <div class="actions-bar-button iconfont icon-option-vertical"></div>
+<div class="actions-bar-container">
+  
+  <div class="actions-bar-container-item" onclick="window.location.href = '/' ">
+    Home
+  </div>
+  
+  <div class="actions-bar-container-item" onclick="window.location.href = '/categories' ">
+    Categories
+  </div>
+  
+  <div class="actions-bar-container-item" onclick="window.location.href = '/tags' ">
+    Tags
+  </div>
+  
+</div>
+
+      </div>
+      <div class="body-container-content">
+        <div class="post-container">
+  
+<link rel="stylesheet" href="/css/post-container.css">
+
+    
+<link rel="stylesheet" href="/css/github-markdown.css">
+
+      
+<link rel="stylesheet" href="/css/code-style.css">
+
+
+        <div class="post-container-body">
+          <h1 id="风格指南"><a href="#风格指南" class="headerlink" title="风格指南"></a>风格指南</h1><p>对官网文档做出记录修改，所有规则分为四大大类：</p>
+<h2 id="规则分类"><a href="#规则分类" class="headerlink" title="规则分类"></a>规则分类</h2><h3 id="必要的："><a href="#必要的：" class="headerlink" title="必要的："></a>必要的：</h3><p>这些规则会帮你规避错误，所以学习并接受它们带来的全部代价吧。这里面可能存在例外，但应该非常少，且只有你同时精通 JavaScript 和 Vue 才可以这样做。</p>
+<h3 id="强烈推荐："><a href="#强烈推荐：" class="headerlink" title="强烈推荐："></a>强烈推荐：</h3><p>这些规则能够在绝大多数工程中改善可读性和开发体验。即使你违反了，代码还是能照常运行，但例外应该尽可能少且有合理的理由。</p>
+<h3 id="推荐："><a href="#推荐：" class="headerlink" title="推荐："></a>推荐：</h3><p>当存在多个同样好的选项，选任意一个都可以确保一致性。在这些规则里，我们描述了每个选项并建议一个默认的选择。也就是说只要保持一致且理由充分，你可以随意在你的代码库中做出不同的选择。请务必给出一个好的理由！通过接受社区的标准，你将会：</p>
+<ul>
+<li>训练你的大脑，以便更容易的处理你在社区遇到的代码；</li>
+<li>不做修改就可以直接复制粘贴社区的代码示例；</li>
+<li>能够经常招聘到和你编码习惯相同的新人，至少跟 Vue 相关的东西是这样的。</li>
+</ul>
+<h3 id="谨慎使用："><a href="#谨慎使用：" class="headerlink" title="谨慎使用："></a>谨慎使用：</h3><p>有些 Vue 特性的存在是为了照顾极端情况或帮助老代码的平稳迁移。当被过度使用时，这些特性会让你的代码难于维护甚至变成 bug 的来源。这些规则是为了给有潜在风险的特性敲个警钟，并说明它们什么时候不应该使用以及为什么。</p>
+<h2 id="必要的：-1"><a href="#必要的：-1" class="headerlink" title="必要的："></a>必要的：</h2><h3 id="组件名为多个单词"><a href="#组件名为多个单词" class="headerlink" title="组件名为多个单词"></a>组件名为多个单词</h3><p><strong>组件名应始终是多个单词，根组件 <code>APP</code> 以及 <code>&lt;transition&gt;</code>，<code>&lt;component&gt;</code> 之类的 Vue 内置组件除外。</strong></p>
+<p>这样做可以避免跟现有的以及未来的 HTML 元素<a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">相冲突</a>，因为所有的 HTML 元素名称都是单个单词的。</p>
+<pre><code class="hljs javascript">Vue.component(<span class="hljs-string">&quot;todo-item&quot;</span>, &#123;
+  <span class="hljs-comment">//...</span>
+&#125;);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;TodoItem&quot;</span>,
+  <span class="hljs-comment">// ...</span>
+&#125;;</code></pre>
+
+<h3 id="组件数据"><a href="#组件数据" class="headerlink" title="组件数据"></a>组件数据</h3><p><strong>组件的 <code>data</code> 必须是一个函数。</strong></p>
+<p>当在组件中使用 <code>data</code> property 的时候 (除了 <code>new Vue</code> 外的任何地方)，它的值必须是返回一个对象的函数。</p>
+<pre><code class="hljs javascript">Vue.component(<span class="hljs-string">&quot;some-comp&quot;</span>, &#123;
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>,
+    &#125;;
+  &#125;,
+&#125;);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>,
+    &#125;;
+  &#125;,
+&#125;;
+
+<span class="hljs-comment">// 在一个 Vue 的根实例上直接使用对象是可以的，</span>
+<span class="hljs-comment">// 因为只存在一个这样的实例。</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>,
+  &#125;,
+&#125;);</code></pre>
+
+<h3 id="Prop-定义"><a href="#Prop-定义" class="headerlink" title="Prop 定义"></a>Prop 定义</h3><p><strong>Prop 定义应尽量详细</strong></p>
+<p>prop 的定义应该尽量详细，至少需要指定其类型。</p>
+<pre><code class="hljs javascript">
+<span class="hljs-comment">// 这样做只有开发原型系统时可以接受</span>
+<span class="hljs-attr">props</span>: [<span class="hljs-string">&quot;status&quot;</span>]
+
+<span class="hljs-attr">props</span>: &#123;
+  <span class="hljs-attr">status</span>: <span class="hljs-built_in">String</span>
+&#125;
+
+<span class="hljs-comment">// 更好的做法！</span>
+<span class="hljs-attr">props</span>: &#123;
+  <span class="hljs-attr">status</span>: &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">validator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> [
+        <span class="hljs-string">&#x27;syncing&#x27;</span>,
+        <span class="hljs-string">&#x27;synced&#x27;</span>,
+        <span class="hljs-string">&#x27;version-conflict&#x27;</span>,
+        <span class="hljs-string">&#x27;error&#x27;</span>
+      ].indexOf(value) !== -<span class="hljs-number">1</span>
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+<h3 id="为-v-for-设置键值"><a href="#为-v-for-设置键值" class="headerlink" title="为 v-for 设置键值"></a>为 <code>v-for</code> 设置键值</h3><p><strong>总是用 <code>key</code> 配合 <code>v-for</code>。</strong></p>
+<p>在组件上必须用 key 配合 v-for，以便维护内部组件及其子树的状态。甚至在元素上维护可预测的行为，比如动画中的<a target="_blank" rel="noopener" href="https://bost.ocks.org/mike/constancy/">对象固化 (object constancy)</a>，也是一种好的做法。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;todo in todos&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;todo.id&quot;</span>&gt;</span>&#123;&#123; todo.text &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+
+<h3 id="避免-v-if-和-v-for-用在一起"><a href="#避免-v-if-和-v-for-用在一起" class="headerlink" title="避免 v-if 和 v-for 用在一起"></a>避免 <code>v-if</code> 和 <code>v-for</code> 用在一起</h3><p><strong>永远不要把 <code>v-if</code> 和 <code>v-for</code> 同时用在同一个元素上。</strong></p>
+<p>一般我们在两种常见的情况下会倾向于这样做：</p>
+<ul>
+<li>为了过滤一个列表中的项目 (比如 <code>v-for=&quot;user in users&quot; v-if=&quot;user.isActive&quot;</code>)。在这种情形下，请将 <code>users</code> 替换为一个计算属性 (比如 <code>activeUsers</code>)，让其返回过滤后的列表。</li>
+<li>为了避免渲染本应该被隐藏的列表 (比如 <code>v-for=&quot;user in users&quot; v-if=&quot;shouldShowUsers&quot;</code>)。这种情形下，请将 <code>v-if</code> 移动至容器元素上。</li>
+</ul>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;user in activeUsers&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;user.id&quot;</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;shouldShowUsers&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;user in users&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;user.id&quot;</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+
+<h3 id="为组件样式设置作用域"><a href="#为组件样式设置作用域" class="headerlink" title="为组件样式设置作用域"></a>为组件样式设置作用域</h3><p><strong>对于应用来说，顶级 <code>App</code> 组件和布局组件中的样式可以是全局的，但是其它所有组件都应该是有作用域的。</strong></p>
+<p>这条规则只和<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>有关。你不一定要使用 <code>scoped</code> <a target="_blank" rel="noopener" href="https://vue-loader-v14.vuejs.org/zh-cn/features/scoped-css.html">attribute</a>。设置作用域也可以通过 <a target="_blank" rel="noopener" href="https://vue-loader-v14.vuejs.org/zh-cn/features/css-modules.html">CSS Modules</a>，那是一个基于 class 的类似 <a target="_blank" rel="noopener" href="http://getbem.com/">BEM</a> 的策略，当然你也可以使用其它的库或约定。</p>
+<p><strong>不管怎样，对于组件库，我们应该更倾向于选用基于 class 的策略而不是 scoped attribute。</strong></p>
+<p>这让覆写内部样式更容易：使用了常人可理解的 class 名称且没有太高的选择器优先级，而且不太会导致冲突。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;button button-close&quot;</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 使用 `scoped` attribute --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css"></span>
+<span class="css">  <span class="hljs-selector-class">.button</span> &#123;</span>
+<span class="css">    <span class="hljs-attribute">border</span>: none;</span>
+<span class="css">    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;</span>
+<span class="css">  &#125;</span>
+<span class="css"></span>
+<span class="css">  <span class="hljs-selector-class">.button-close</span> &#123;</span>
+<span class="css">    <span class="hljs-attribute">background-color</span>: red;</span>
+<span class="css">  &#125;</span>
+<span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;[$style.button, $style.buttonClose]&quot;</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 使用 CSS Modules --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">module</span>&gt;</span><span class="css"></span>
+<span class="css">  <span class="hljs-selector-class">.button</span> &#123;</span>
+<span class="css">    <span class="hljs-attribute">border</span>: none;</span>
+<span class="css">    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;</span>
+<span class="css">  &#125;</span>
+<span class="css"></span>
+<span class="css">  <span class="hljs-selector-class">.buttonClose</span> &#123;</span>
+<span class="css">    <span class="hljs-attribute">background-color</span>: red;</span>
+<span class="css">  &#125;</span>
+<span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;c-Button c-Button--close&quot;</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 使用 BEM 约定 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span>
+<span class="css">  <span class="hljs-selector-class">.c-Button</span> &#123;</span>
+<span class="css">    <span class="hljs-attribute">border</span>: none;</span>
+<span class="css">    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;</span>
+<span class="css">  &#125;</span>
+<span class="css"></span>
+<span class="css">  <span class="hljs-selector-class">.c-Button--close</span> &#123;</span>
+<span class="css">    <span class="hljs-attribute">background-color</span>: red;</span>
+<span class="css">  &#125;</span>
+<span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+
+<h3 id="私有-property-名"><a href="#私有-property-名" class="headerlink" title="私有 property 名"></a>私有 property 名</h3><p><strong>使用模块作用域保持不允许外部访问的函数的私有性。如果无法做到这一点，就始终为插件、混入等不考虑作为对外公共 API 的自定义私有 property 使用 <code>$_</code> 前缀。并附带一个命名空间以回避和其它作者的冲突 (比如 <code>$_yourPluginName_</code>)。</strong></p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myGreatMixin = &#123;
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">$_myGreatMixin_update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-comment">// ...</span>
+    &#125;,
+  &#125;,
+&#125;;
+
+<span class="hljs-comment">// 甚至更好！</span>
+<span class="hljs-keyword">var</span> myGreatMixin = &#123;
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-function"><span class="hljs-title">publicMethod</span>(<span class="hljs-params"></span>)</span> &#123;
+      <span class="hljs-comment">// ...</span>
+      myPrivateFunction();
+    &#125;,
+  &#125;,
+&#125;;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myPrivateFunction</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// ...</span>
+&#125;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> myGreatMixin;</code></pre>
+
+<h2 id="强烈推荐：-1"><a href="#强烈推荐：-1" class="headerlink" title="强烈推荐："></a>强烈推荐：</h2><h3 id="组件文件"><a href="#组件文件" class="headerlink" title="组件文件"></a>组件文件</h3><p><strong>只要有能够拼接文件的构建系统，就把每个组件单独分成文件。</strong></p>
+<pre><code class="hljs 1c">components/
+<span class="hljs-string">|- TodoList.js</span>
+<span class="hljs-string">|- TodoItem.js</span>
+
+components/
+<span class="hljs-string">|- TodoList.vue</span>
+<span class="hljs-string">|- TodoItem.vue</span></code></pre>
+
+<h3 id="单文件组件文件的大小写"><a href="#单文件组件文件的大小写" class="headerlink" title="单文件组件文件的大小写"></a>单文件组件文件的大小写</h3><p><strong><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>的文件名应该要么始终是单词大写开头 (PascalCase)，要么始终是横线连接 (kebab-case)。</strong></p>
+<p>单词大写开头对于代码编辑器的自动补全最为友好，因为这使得我们在 JS(X) 和模板中引用组件的方式尽可能的一致。然而，混用文件命名方式有的时候会导致大小写不敏感的文件系统的问题，这也是横线连接命名同样完全可取的原因。</p>
+<pre><code class="hljs 1c">components/
+<span class="hljs-string">|- MyComponent.vue</span>
+
+components/
+<span class="hljs-string">|- my-component.vue</span></code></pre>
+
+<h3 id="基础组件名"><a href="#基础组件名" class="headerlink" title="基础组件名"></a>基础组件名</h3><p><strong>应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 <code>Base</code>、<code>App</code> 或 <code>V</code>。</strong></p>
+<pre><code class="hljs 1c">components/
+<span class="hljs-string">|- BaseButton.vue</span>
+<span class="hljs-string">|- BaseTable.vue</span>
+<span class="hljs-string">|- BaseIcon.vue</span>
+
+components/
+<span class="hljs-string">|- AppButton.vue</span>
+<span class="hljs-string">|- AppTable.vue</span>
+<span class="hljs-string">|- AppIcon.vue</span>
+
+components/
+<span class="hljs-string">|- VButton.vue</span>
+<span class="hljs-string">|- VTable.vue</span>
+<span class="hljs-string">|- VIcon.vue</span></code></pre>
+
+<h3 id="单例组件名"><a href="#单例组件名" class="headerlink" title="单例组件名"></a>单例组件名</h3><p><strong>只应该拥有单个活跃实例的组件应该以 <code>The</code> 前缀命名，以示其唯一性。</strong></p>
+<p>这不意味着组件只可用于一个单页面，而是每个页面只使用一次。这些组件永远不接受任何 prop，因为它们是为你的应用定制的，而不是它们在你的应用中的上下文。如果你发现有必要添加 prop，那就表明这实际上是一个可复用的组件，只是目前在每个页面里只使用一次。</p>
+<pre><code class="hljs 1c">components/
+<span class="hljs-string">|- TheHeading.vue</span>
+<span class="hljs-string">|- TheSidebar.vue</span></code></pre>
+
+<h3 id="紧密耦合的组件名"><a href="#紧密耦合的组件名" class="headerlink" title="紧密耦合的组件名"></a>紧密耦合的组件名</h3><p><strong>和父组件紧密耦合的子组件应该以父组件名作为前缀命名。</strong></p>
+<p>如果一个组件只在某个父组件的场景下有意义，这层关系应该体现在其名字上。因为编辑器通常会按字母顺序组织文件，所以这样做可以把相关联的文件排在一起。</p>
+<pre><code class="hljs 1c">components/
+<span class="hljs-string">|- TodoList.vue</span>
+<span class="hljs-string">|- TodoListItem.vue</span>
+<span class="hljs-string">|- TodoListItemButton.vue</span></code></pre>
+
+<h3 id="组件名中的单词顺序"><a href="#组件名中的单词顺序" class="headerlink" title="组件名中的单词顺序"></a>组件名中的单词顺序</h3><p><strong>组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾。</strong></p>
+<pre><code class="hljs 1c"><span class="hljs-string">|- SearchButtonClear.vue</span>
+<span class="hljs-string">|- SearchButtonRun.vue</span>
+<span class="hljs-string">|- SearchInputQuery.vue</span>
+<span class="hljs-string">|- SearchInputExcludeGlob.vue</span>
+<span class="hljs-string">|- SettingsCheckboxTerms.vue</span>
+<span class="hljs-string">|- SettingsCheckboxLaunchOnStartup.vue</span></code></pre>
+
+<h3 id="自闭合组件"><a href="#自闭合组件" class="headerlink" title="自闭合组件"></a>自闭合组件</h3><p><strong>在<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>、字符串模板和 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/render-function.html#JSX">JSX</a> 中没有内容的组件应该是自闭合的——但在 DOM 模板里永远不要这样做。</strong></p>
+<p>自闭合组件表示它们不仅没有内容，而且刻意没有内容。其不同之处就好像书上的一页白纸对比贴有“本页有意留白”标签的白纸。而且没有了额外的闭合标签，你的代码也更简洁。</p>
+<p>不幸的是，HTML 并不支持自闭合的自定义元素——只有<a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/syntax.html#void-elements">官方的“空”元素</a>。所以上述策略仅适用于进入 DOM 之前 Vue 的模板编译器能够触达的地方，然后再产出符合 DOM 规范的 HTML。</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 在单文件组件、字符串模板和 JSX 中 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">MyComponent</span> /&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 在 DOM 模板中 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+
+<h3 id="模板中的组件名大小写"><a href="#模板中的组件名大小写" class="headerlink" title="模板中的组件名大小写"></a>模板中的组件名大小写</h3><p><strong>对于绝大多数项目来说，在<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>和字符串模板中组件名应该总是 PascalCase 的——但是在 DOM 模板中总是 kebab-case 的。</strong></p>
+<p>PascalCase 相比 kebab-case 有一些优势：</p>
+<ul>
+<li>编辑器可以在模板里自动补全组件名，因为 PascalCase 同样适用于 JavaScript。</li>
+<li><code>&lt;MyComponent&gt;</code> 视觉上比 <code>&lt;my-component&gt;</code> 更能够和单个单词的 HTML 元素区别开来，因为前者的不同之处有两个大写字母，后者只有一个横线。</li>
+<li>如果你在模板中使用任何非 Vue 的自定义元素，比如一个 Web Component，PascalCase 确保了你的 Vue 组件在视觉上仍然是易识别的。</li>
+</ul>
+<p>不幸的是，由于 HTML 是大小写不敏感的，在 DOM 模板中必须仍使用 kebab-case。</p>
+<p>还请注意，如果你已经是 kebab-case 的重度用户，那么与 HTML 保持一致的命名约定且在多个项目中保持相同的大小写规则就可能比上述优势更为重要了。在这些情况下，在所有的地方都使用 kebab-case 同样是可以接受的。</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 在单文件组件和字符串模板中 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">MyComponent</span> /&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 在 DOM 模板中 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
+或者
+<span class="hljs-comment">&lt;!-- 在所有地方 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+
+<h3 id="JS-JSX-中的组件名大小写"><a href="#JS-JSX-中的组件名大小写" class="headerlink" title="JS/JSX 中的组件名大小写"></a>JS/JSX 中的组件名大小写</h3><p><strong>JS/JSX 中的组件名应该始终是 PascalCase 的，尽管在较为简单的应用中只使用 Vue.component 进行全局组件注册时，可以使用 kebab-case 字符串。</strong></p>
+<pre><code class="hljs javascript">Vue.component(<span class="hljs-string">&#x27;MyComponent&#x27;</span>, &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;)
+
+Vue.component(<span class="hljs-string">&#x27;my-component&#x27;</span>, &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;)
+
+<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./MyComponent.vue&#x27;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;MyComponent&#x27;</span>,
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
+
+<h3 id="完整单词的组件名"><a href="#完整单词的组件名" class="headerlink" title="完整单词的组件名"></a>完整单词的组件名</h3><p><strong>组件名应该倾向于完整单词而不是缩写。</strong></p>
+<p>编辑器中的自动补全已经让书写长命名的代价非常之低了，而其带来的明确性却是非常宝贵的。不常用的缩写尤其应该避免。</p>
+<pre><code class="hljs 1c">components/
+<span class="hljs-string">|- StudentDashboardSettings.vue</span>
+<span class="hljs-string">|- UserProfileOptions.vue</span></code></pre>
+
+<h3 id="Prop-名大小写"><a href="#Prop-名大小写" class="headerlink" title="Prop 名大小写"></a>Prop 名大小写</h3><p><strong>在声明 prop 的时候，其命名应该始终使用 camelCase，而在模板和 JSX 中应该始终使用 kebab-case。</strong></p>
+<p>我们单纯的遵循每个语言的约定。在 JavaScript 中更自然的是 camelCase。而在 HTML 中则是 kebab-case。</p>
+<pre><code class="hljs javascript">props: &#123;
+  <span class="hljs-attr">greetingText</span>: <span class="hljs-built_in">String</span>;
+&#125;
+
+&lt;WelcomeMessage greeting-text=<span class="hljs-string">&quot;hi&quot;</span> /&gt;;</code></pre>
+
+<h3 id="多个-attribute-的元素"><a href="#多个-attribute-的元素" class="headerlink" title="多个 attribute 的元素"></a>多个 attribute 的元素</h3><p><strong>多个 attribute 的元素应该分多行撰写，每个 attribute 一行。</strong></p>
+<p>在 JavaScript 中，用多行分隔对象的多个 property 是很常见的最佳实践，因为这样更易读。模板和 JSX 值得我们做相同的考虑。</p>
+<pre><code class="hljs routeros">&lt;img
+  <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;https://vuejs.org/images/logo.png&quot;</span>
+  <span class="hljs-attribute">alt</span>=<span class="hljs-string">&quot;Vue Logo&quot;</span>
+&gt;
+
+&lt;MyComponent
+  <span class="hljs-attribute">foo</span>=<span class="hljs-string">&quot;a&quot;</span>
+  <span class="hljs-attribute">bar</span>=<span class="hljs-string">&quot;b&quot;</span>
+  <span class="hljs-attribute">baz</span>=<span class="hljs-string">&quot;c&quot;</span>
+/&gt;</code></pre>
+
+<h3 id="模板中简单的表达式"><a href="#模板中简单的表达式" class="headerlink" title="模板中简单的表达式"></a>模板中简单的表达式</h3><p><strong>组件模板应该只包含简单的表达式，复杂的表达式则应该重构为计算属性或方法。</strong></p>
+<p>复杂表达式会让你的模板变得不那么声明式。我们应该尽量描述应该出现的是什么，而非如何计算那个值。而且计算属性和方法使得代码可以重用。</p>
+<pre><code class="hljs javascript">&lt;!-- 在模板中 --&gt;
+&#123;&#123; normalizedFullName &#125;&#125;
+
+<span class="hljs-comment">// 复杂表达式已经移入一个计算属性</span>
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">normalizedFullName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.fullName.split(<span class="hljs-string">&#x27; &#x27;</span>).map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">word</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> word[<span class="hljs-number">0</span>].toUpperCase() + word.slice(<span class="hljs-number">1</span>)
+    &#125;).join(<span class="hljs-string">&#x27; &#x27;</span>)
+  &#125;
+&#125;</code></pre>
+
+<h3 id="简单的计算属性"><a href="#简单的计算属性" class="headerlink" title="简单的计算属性"></a>简单的计算属性</h3><p><strong>应该把复杂计算属性分割为尽可能多的更简单的 property。</strong></p>
+<pre><code class="hljs javascript">computed: &#123;
+  <span class="hljs-attr">basePrice</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.manufactureCost / (<span class="hljs-number">1</span> - <span class="hljs-built_in">this</span>.profitMargin)
+  &#125;,
+  <span class="hljs-attr">discount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.basePrice * (<span class="hljs-built_in">this</span>.discountPercent || <span class="hljs-number">0</span>)
+  &#125;,
+  <span class="hljs-attr">finalPrice</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.basePrice - <span class="hljs-built_in">this</span>.discount
+  &#125;
+&#125;</code></pre>
+
+<h3 id="带引号的-attribute-值"><a href="#带引号的-attribute-值" class="headerlink" title="带引号的 attribute 值"></a>带引号的 attribute 值</h3><p><strong>非空 HTML attribute 值应该始终带引号 (单引号或双引号，选你 JS 里不用的那个)。</strong></p>
+<p>在 HTML 中不带空格的 attribute 值是可以没有引号的，但这鼓励了大家在特征值里不写空格，导致可读性变差。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">AppSidebar</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;&#123; width: sidebarWidth + &#x27;px&#x27; &#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">AppSidebar</span>&gt;</span></code></pre>
+
+<h3 id="指令缩写"><a href="#指令缩写" class="headerlink" title="指令缩写"></a>指令缩写</h3><p><strong>指令缩写 (用 <code>:</code> 表示 <code>v-bind:</code>、用 <code>@</code> 表示 <code>v-on:</code> 和用 <code>#</code> 表示 <code>v-slot:</code>) 应该要么都用要么都不用。</strong></p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;newTodoText&quot;</span> <span class="hljs-attr">:placeholder</span>=<span class="hljs-string">&quot;newTodoInstructions&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">&quot;newTodoText&quot;</span> <span class="hljs-attr">v-bind:placeholder</span>=<span class="hljs-string">&quot;newTodoInstructions&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">&quot;onInput&quot;</span> @<span class="hljs-attr">focus</span>=<span class="hljs-string">&quot;onFocus&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:input</span>=<span class="hljs-string">&quot;onInput&quot;</span> <span class="hljs-attr">v-on:focus</span>=<span class="hljs-string">&quot;onFocus&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Here might be a page title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Here might be a page title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+
+<h2 id="推荐：-1"><a href="#推荐：-1" class="headerlink" title="推荐："></a>推荐：</h2><h3 id="组件-实例的选项的顺序"><a href="#组件-实例的选项的顺序" class="headerlink" title="组件/实例的选项的顺序"></a>组件/实例的选项的顺序</h3><p><strong>组件/实例的选项应该有统一的顺序。</strong></p>
+<p>这是我们推荐的组件选项默认顺序。它们被划分为几大类，所以你也能知道从插件里添加的新 property 应该放到哪里。</p>
+<ol>
+<li>副作用（触发组件外的影响）</li>
+</ol>
+<ul>
+<li><code>el</code></li>
+</ul>
+<ol start="2">
+<li>全局感知（要求组件以外的知识）</li>
+</ol>
+<ul>
+<li><code>name</code></li>
+<li><code>parent</code></li>
+</ul>
+<ol start="3">
+<li>组件类型 （更改组件的类型）</li>
+</ol>
+<ul>
+<li><code>functional</code></li>
+</ul>
+<ol start="4">
+<li>模板修改器（改变模板的编译方式）</li>
+</ol>
+<ul>
+<li><code>delimiters</code></li>
+<li><code>comments</code></li>
+</ul>
+<ol start="5">
+<li>模板依赖（模板内使用的资源）</li>
+</ol>
+<ul>
+<li><code>components</code></li>
+<li><code>directives</code></li>
+<li><code>filters</code></li>
+</ul>
+<ol start="6">
+<li>组合（向选项里合并 property）</li>
+</ol>
+<ul>
+<li><code>extends</code></li>
+<li><code>mixins</code></li>
+</ul>
+<ol start="7">
+<li>接口 (组件的接口)</li>
+</ol>
+<ul>
+<li><code>inheritAttrs</code></li>
+<li><code>model</code></li>
+<li><code>props/propsData</code></li>
+</ul>
+<ol start="8">
+<li>本地状态 (本地的响应式 property)</li>
+</ol>
+<ul>
+<li><code>data</code></li>
+<li><code>computed</code></li>
+</ul>
+<ol start="9">
+<li>事件 (通过响应式事件触发的回调)</li>
+</ol>
+<ul>
+<li><code>watch</code></li>
+<li>生命周期钩子 (按照它们被调用的顺序)<ul>
+<li><code>beforeCreate</code></li>
+<li><code>created</code></li>
+<li><code>beforeMount</code></li>
+<li><code>mounted</code></li>
+<li><code>beforeUpdate</code></li>
+<li><code>updated</code></li>
+<li><code>activated</code></li>
+<li><code>deactivated</code></li>
+<li><code>beforeDestroy</code></li>
+<li><code>destroyed</code></li>
+</ul>
+</li>
+</ul>
+<ol start="10">
+<li>非响应式的 property (不依赖响应系统的实例 property)</li>
+</ol>
+<ul>
+<li><code>methods</code></li>
+</ul>
+<ol start="11">
+<li>渲染 (组件输出的声明式描述)</li>
+</ol>
+<ul>
+<li><code>template/render</code></li>
+<li><code>renderError</code></li>
+</ul>
+<h3 id="元素-attribute-的顺序"><a href="#元素-attribute-的顺序" class="headerlink" title="元素 attribute 的顺序"></a>元素 attribute 的顺序</h3><p><strong>元素 (包括组件) 的 attribute 应该有统一的顺序。</strong></p>
+<p>这是我们为组件选项推荐的默认顺序。它们被划分为几大类，所以你也能知道新添加的自定义 attribute 和指令应该放到哪里。</p>
+<ol>
+<li>定义 (提供组件的选项)</li>
+</ol>
+<ul>
+<li><code>is</code></li>
+</ul>
+<ol start="2">
+<li>列表渲染 (创建多个变化的相同元素)</li>
+</ol>
+<ul>
+<li><code>v-for</code></li>
+</ul>
+<ol start="3">
+<li>条件渲染 (元素是否渲染/显示)</li>
+</ol>
+<ul>
+<li><code>v-if</code></li>
+<li><code>v-else-if</code></li>
+<li><code>v-else</code></li>
+<li><code>v-show</code></li>
+<li><code>v-cloak</code></li>
+</ul>
+<ol start="4">
+<li>渲染方式 (改变元素的渲染方式)</li>
+</ol>
+<ul>
+<li><code>v-pre</code></li>
+<li><code>v-once</code></li>
+</ul>
+<ol start="5">
+<li>全局感知 (需要超越组件的知识)</li>
+</ol>
+<ul>
+<li><code>id</code></li>
+</ul>
+<ol start="6">
+<li>唯一的 attribute (需要唯一值的 attribute)</li>
+</ol>
+<ul>
+<li><code>ref</code></li>
+<li><code>key</code></li>
+</ul>
+<ol start="7">
+<li>双向绑定 (把绑定和事件结合起来)</li>
+</ol>
+<ul>
+<li><code>v-model</code></li>
+</ul>
+<ol start="8">
+<li><p>其它 attribute (所有普通的绑定或未绑定的 attribute)</p>
+</li>
+<li><p>事件 (组件事件监听器)</p>
+</li>
+</ol>
+<ul>
+<li><code>v-on</code></li>
+</ul>
+<ol start="10">
+<li>内容 (覆写元素的内容)</li>
+</ol>
+<ul>
+<li><code>v-html</code></li>
+<li><code>v-text</code></li>
+</ul>
+<h3 id="组件-实例选项中的空行"><a href="#组件-实例选项中的空行" class="headerlink" title="组件/实例选项中的空行"></a>组件/实例选项中的空行</h3><p><strong>你可能想在多个 property 之间增加一个空行，特别是在这些选项一屏放不下，需要滚动才能都看到的时候。</strong></p>
+<p>当你的组件开始觉得密集或难以阅读时，在多个 property 之间添加空行可以让其变得容易。在一些诸如 Vim 的编辑器里，这样格式化后的选项还能通过键盘被快速导航。</p>
+<pre><code class="hljs javascript">props: &#123;
+  <span class="hljs-attr">value</span>: &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
+  &#125;,
+
+  <span class="hljs-attr">focused</span>: &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-built_in">Boolean</span>,
+    <span class="hljs-attr">default</span>: <span class="hljs-literal">false</span>
+  &#125;,
+
+  <span class="hljs-attr">label</span>: <span class="hljs-built_in">String</span>,
+  <span class="hljs-attr">icon</span>: <span class="hljs-built_in">String</span>
+&#125;,
+
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">formattedValue</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;,
+
+  <span class="hljs-attr">inputClasses</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;
+&#125;
+
+<span class="hljs-comment">// 没有空行在组件易于阅读和导航时也没问题。</span>
+<span class="hljs-attr">props</span>: &#123;
+  <span class="hljs-attr">value</span>: &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
+  &#125;,
+  <span class="hljs-attr">focused</span>: &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-built_in">Boolean</span>,
+    <span class="hljs-attr">default</span>: <span class="hljs-literal">false</span>
+  &#125;,
+  <span class="hljs-attr">label</span>: <span class="hljs-built_in">String</span>,
+  <span class="hljs-attr">icon</span>: <span class="hljs-built_in">String</span>
+&#125;,
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">formattedValue</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;,
+  <span class="hljs-attr">inputClasses</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;
+&#125;</code></pre>
+
+<h3 id="单文件组件的顶级元素的顺序"><a href="#单文件组件的顶级元素的顺序" class="headerlink" title="单文件组件的顶级元素的顺序"></a>单文件组件的顶级元素的顺序</h3><p><strong><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>应该总是让 <code>&lt;script&gt;</code>、<code>&lt;template&gt;</code> 和 <code>&lt;style&gt;</code> 标签的顺序保持一致。且 <code>&lt;style&gt;</code> 要放在最后，因为另外两个标签至少要有一个。</strong></p>
+<h2 id="谨慎使用：-1"><a href="#谨慎使用：-1" class="headerlink" title="谨慎使用："></a>谨慎使用：</h2><h3 id="没有在-v-if-v-else-if-v-else-中使用-key"><a href="#没有在-v-if-v-else-if-v-else-中使用-key" class="headerlink" title="没有在 v-if/v-else-if/v-else 中使用 key"></a>没有在 <code>v-if</code>/<code>v-else-if</code>/<code>v-else</code> 中使用 <code>key</code></h3><p><strong>如果一组 <code>v-if</code> + <code>v-else</code> 的元素类型相同，最好使用 <code>key</code> (比如两个 <code>&lt;div&gt;</code> 元素)。</strong></p>
+<p>默认情况下，Vue 会尽可能高效的更新 DOM。这意味着其在相同类型的元素之间切换时，会修补已存在的元素，而不是将旧的元素移除然后在同一位置添加一个新元素。如果本不相同的元素被识别为相同，则会出现意料之外的结果。</p>
+<pre><code class="hljs handlebars"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span>
+<span class="hljs-tag"><span class="xml">  <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;error&quot;</span></span></span>
+<span class="hljs-tag"><span class="xml">  <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;search-status&quot;</span></span></span>
+<span class="hljs-tag"><span class="xml">&gt;</span></span>
+<span class="xml">  错误：</span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">error</span> &#125;&#125;</span><span class="xml"></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml"></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span>
+<span class="hljs-tag"><span class="xml">  <span class="hljs-attr">v-else</span></span></span>
+<span class="hljs-tag"><span class="xml">  <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;search-results&quot;</span></span></span>
+<span class="hljs-tag"><span class="xml">&gt;</span></span>
+<span class="xml">  </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">results</span> &#125;&#125;</span><span class="xml"></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre>
+
+<h3 id="scoped-中的元素选择器"><a href="#scoped-中的元素选择器" class="headerlink" title="scoped 中的元素选择器"></a>scoped 中的元素选择器</h3><p><strong>元素选择器应该避免在 scoped 中出现。</strong></p>
+<p>在 scoped 样式中，类选择器比元素选择器更好，因为大量使用元素选择器是很慢的。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-close&quot;</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css"></span>
+<span class="css">  <span class="hljs-selector-class">.btn-close</span> &#123;</span>
+<span class="css">    <span class="hljs-attribute">background-color</span>: red;</span>
+<span class="css">  &#125;</span>
+<span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+
+<h3 id="隐性的父子组件通信"><a href="#隐性的父子组件通信" class="headerlink" title="隐性的父子组件通信"></a>隐性的父子组件通信</h3><p><strong>应该优先通过 prop 和事件进行父子组件之间的通信，而不是 <code>this.$parent</code> 或变更 prop。</strong></p>
+<p>一个理想的 Vue 应用是 prop 向下传递，事件向上传递的。遵循这一约定会让你的组件更易于理解。然而，在一些边界情况下 prop 的变更或 <code>this.$parent</code> 能够简化两个深度耦合的组件。</p>
+<p>问题在于，这种做法在很多简单的场景下可能会更方便。但请当心，不要为了一时方便 (少写代码) 而牺牲数据流向的简洁性 (易于理解)。</p>
+<pre><code class="hljs javascript">Vue.component(<span class="hljs-string">&quot;TodoItem&quot;</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">todo</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
+      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+    &#125;,
+  &#125;,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`</span>
+<span class="hljs-string">    &lt;input</span>
+<span class="hljs-string">      :value=&quot;todo.text&quot;</span>
+<span class="hljs-string">      @input=&quot;$emit(&#x27;input&#x27;, $event.target.value)&quot;</span>
+<span class="hljs-string">    &gt;</span>
+<span class="hljs-string">  `</span>,
+&#125;);</code></pre>
+
+<h3 id="非-Flux-的全局状态管理"><a href="#非-Flux-的全局状态管理" class="headerlink" title="非 Flux 的全局状态管理"></a>非 Flux 的全局状态管理</h3><p><strong>应该优先通过 <a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/">Vuex</a> 管理全局状态，而不是通过 <code>this.$root</code> 或一个全局事件总线。</strong></p>
+<p>通过 <code>this.$root</code> 和/或<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/migration.html#dispatch-%E5%92%8C-broadcast-%E6%9B%BF%E6%8D%A2">全局事件总线</a>管理状态在很多简单的情况下都是很方便的，但是并不适用于绝大多数的应用。</p>
+<p>于绝大多数的应用。</p>
+<p>Vuex 是 Vue 的<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/state-management.html#%E7%B1%BB-Flux-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%98%E6%96%B9%E5%AE%9E%E7%8E%B0">官方类 flux 实现</a>，其提供的不仅是一个管理状态的中心区域，还是组织、追踪和调试状态变更的好工具。它很好地集成在了 Vue 生态系统之中 (包括完整的 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/installation.html#Vue-Devtools">Vue DevTools</a> 支持)。</p>
+
+        </div>
+        <div class="post-container-change">
+          
+              
+                <div class="next" onclick="window.location.href='/2021/04/02/SS-SSR-Trojan-V2Ray/'">
+                  <div class="title">
+                    VPN
+                  </div>
+                  <div class="excerpt">
+                    SS/SSR/Trojan/V2Ray推荐
+                  </div>
+                </div>
+                
+        </div>
+        
+          <div class="comments">
+            
+  <div class="view" onclick="loadDisqus();return false;">View / Make Comments</div>
+
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://blog.ifrepis.com / 2021/09/06/Vue-风格指南/index.html';
+      this.page.identifier = '2021/09/06/Vue-风格指南/index.html';
+      this.page.title = 'Vue 风格指南';
+    };
+
+    var is_disqus_loaded = false;
+
+    function loadDisqus() {
+      if (!is_disqus_loaded) {
+        is_disqus_loaded = true;
+        const gitalk = new Gitalk({
+          clientID: '5824858fc24354c22785',
+          clientSecret: 'c766ac5aa79529d9676de10ab1c88fb5f413ac7f',
+          repo: 'ifrepis.github.io',
+          owner: 'Ifrepis',
+          admin: ['Ifrepis'],
+          id: location.pathname,
+          distractionFreeMode: false,
+        });
+        gitalk.render('gitalk-container', () => {
+          document.querySelector('.view').style.display = 'none'
+        });
+
+      }
+    }
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" />
+      <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+      <div id="gitalk-container"></div>
+
+      
+          </div>
+          
+</div>
+
+        
+  <div class="float-operate-container">
+    <script type="module" src="/js/partials/float-operate.js"></script>
+    
+<link rel="stylesheet" href="/css/float-operate.css">
+
+      
+        <div class="float-operate-item iconfont icon-jiantou">
+        </div>
+        
+          
+
+  </div>
+  
+
+      </div>
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":130,"height":200,"position":"left","hOffset":30,"vOffset":10},"mobile":{"show":true,"scale":0.8},"react":{"opacity":0.7,"opacityOnHover":0.2},"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+</html>
